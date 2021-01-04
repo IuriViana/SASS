@@ -1,0 +1,32 @@
+//Repetições
+
+//For to || through
+@for $i from 1 through 5 {
+    .text-#{$i} {
+       font-size: 15px * $i;
+       //Multiplicar valores
+    }
+    //Interpolação = #{}
+}
+
+///Array
+$colors: blue, red, yellow;
+
+//Each
+@each $color in $colors {
+    .#{$color}-text {color: lighten($color, 10)}
+//key
+}
+
+//Funções
+//Lighten() Darked () && Invert()
+//@function nome(argumentos) {@return valor;}
+
+//Referencial
+p{
+    color:red;
+    &:hover{
+        color: blue;
+        cursor: pointer;
+    }
+}

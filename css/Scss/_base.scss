@@ -1,0 +1,51 @@
+//Variáveis
+$title-color: orange;
+
+//Mixin
+@mixin box-shadow($color) {
+    box-shadow: 4px 3px 4px 1px $color;
+}
+
+@mixin text-effect($val) {
+    //Condicionais
+    @if $val == danger {
+        color: red;
+    } @else if $val == alert {
+        color: yellow;
+    } @else {
+        color: black;
+    }
+}
+
+//Herança @extend
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+    background-color: #7159c1;
+    @extend .flex;
+    flex-direction: column;
+    h1 {
+        color: $title-color;
+    }
+}
+
+.container {
+    @extend .flex;
+    flex-direction: column;
+    width: 300px;
+    background-color: white;
+    @include box-shadow(rgba(7, 6, 6, 0.6));
+    p {
+        width: 95%;
+        background-color: grey;
+        text-align: center;
+        color: rgb(65, 65, 65);
+        @include text-effect(none);
+        @include box-shadow(rgba(0, 0, 0, 0.6));
+    }
+}
